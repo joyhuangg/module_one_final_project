@@ -25,3 +25,8 @@ def select_from_possible_recipes(recipes)
   end
   prompt.select("Select a recipe to make:", choices)
 end
+
+def make_recipe?
+  prompt = TTY::Prompt.new
+  prompt.yes?('Make Recipe?')
+end

@@ -15,5 +15,10 @@ if see_recipes?
   recipes = user.find_recipes
   recipe = select_from_possible_recipes(recipes)
   recipe.print_ingredients
+  if make_recipe?
+    
+  else
+
+  end
 end
 binding.pry

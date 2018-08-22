@@ -15,24 +15,25 @@ class User < ActiveRecord::Base
     self.ingredients.each {|ingredient| puts ingredient.name}
   end
 
-  def find_recipes
-    result = []
-    Recipe.all.each do |recipe|
-      have_all_ingredients = true
-
-      recipe.ingredients.each do |recipe_ingredient|
-        if !self.ingredients.include?(recipe_ingredient)
-          have_all_ingredients = false
-          break
-        end
-      end
 
 
-      if have_all_ingredients
-        result << recipe
+  def valid_recipe?(recipe)
+    recipe.ingredients.each do |recipe_ingredient|
+      if !self.ingredients.include?(recipe_ingredient)
+        return false
       end
     end
-  result
+    return true
+  end
+
+  def find_recipes
+    Recipe.all.select {|recipe| valid_recipe?(recipe)}
+  end
+
+
+
+  def make_recipe(recipe)
+    recipe.ingredients.each {|ingredient| }
   end
 
 end
