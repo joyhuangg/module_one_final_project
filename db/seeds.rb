@@ -6,6 +6,9 @@ User.destroy_all
 RecipeCard.destroy_all
 
 
+##Dummy User##
+User.create(name: "Dummy User")
+
 ######MAKE CATEGORY SUPER CLASS THAT WILL WORK SUCH AS
 ### MEAT CLASS <
 #Or have a category attribute for each ingredient
