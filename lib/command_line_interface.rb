@@ -1,3 +1,9 @@
+# heart = prompt.decorate('❤ ', :magenta)
+# prompt.mask('What is your secret?', mask: heart)
+# # => What is your secret? ❤  ❤  ❤  ❤  ❤
+
+
+
 def welcome
   puts "Welcome User"
 end
@@ -9,7 +15,7 @@ def select_ingredients
   Ingredient.all.each do |ingredient|
     choices.push({name: ingredient.name, value: ingredient})
   end
-  prompt.multi_select("Select the ingredients in your inventory", choices)
+  prompt.multi_select("Select the ingredients in your inventory. (Use arrow keys, press Space to select and Enter to finish)", choices, per_page: 20)
 end
 
 def see_recipes?
@@ -23,7 +29,12 @@ def select_from_possible_recipes(recipes)
   recipes.each do |recipe|
     choices.push({name: recipe.name, value: recipe})
   end
-  prompt.select("Select a recipe to make:", choices)
+  if choices.empty?
+    puts "No recipes available"
+    return 
+  else
+    return prompt.select("Select a recipe to make:", choices)
+  end
 end
 
 def make_recipe?

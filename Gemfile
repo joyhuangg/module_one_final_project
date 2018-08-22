@@ -6,6 +6,6 @@ gem "sinatra-activerecord"
 gem "sqlite3"
 gem "pry"
 gem "require_all"
-gem 'tty'
+gem "tty"
 # Specify your gem's dependencies in module_one_final_project.gemspec
 gemspec

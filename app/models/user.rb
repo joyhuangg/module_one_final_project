@@ -31,9 +31,17 @@ class User < ActiveRecord::Base
   end
 
 
-
   def make_recipe(recipe)
-    recipe.ingredients.each {|ingredient| }
+    if valid_recipe?(recipe)
+      puts "Cooking #{recipe.name}"
+      recipe.ingredients.each do |ingredient|
+        puts "Using a #{ingredient.name}"
+        IngredientUser.find_by(user_id: self.id , ingredient_id: ingredient.id).delete
+      end
+    else
+      puts "I don't have the ingredients for that recipe"
+      return
+    end
   end
 
 end
