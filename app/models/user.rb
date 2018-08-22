@@ -11,7 +11,28 @@ class User < ActiveRecord::Base
   end
 
   def show_user_ingredients
-    puts "#{self.name}'s Inventory'"
+    puts "#{self.name}'s Inventory"
     self.ingredients.each {|ingredient| puts ingredient.name}
   end
+
+  def find_recipes
+    result = []
+    Recipe.all.each do |recipe|
+      have_all_ingredients = true
+
+      recipe.ingredients.each do |recipe_ingredient|
+        if !self.ingredients.include?(recipe_ingredient)
+          have_all_ingredients = false
+          break
+        end
+      end
+
+
+      if have_all_ingredients
+        result << recipe
+      end
+    end
+  result
+  end
+
 end

@@ -418,8 +418,8 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Spicy Peppered Seafood")
 #any herb, veg, or flower
 #any fish
 Recipe.create(name: "Steamed Fish")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Spicy Peppered Seafood").id, ingredient_id:Ingredient.find_by(name:"Bass").id)
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Spicy Peppered Seafood").id, ingredient_id:Ingredient.find_by(name:"Bass").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Fish").id, ingredient_id:Ingredient.find_by(name:"Bass").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Fish").id, ingredient_id:Ingredient.find_by(name:"Bass").id)
 
 #any fish
 #any mushroom
@@ -528,10 +528,10 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Prime Poultry Pilaf").id
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Prime Poultry Pilaf").id, ingredient_id:Ingredient.find_by(name:"Hylian Rice").id)
 
 Recipe.create(name: "Gourmet Poultry Pilaf")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Prime Poultry Pilaf").id, ingredient_id:Ingredient.find_by(name:"Raw Whole Bird").id)
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Prime Poultry Pilaf").id, ingredient_id:Ingredient.find_by(name:"Bird Egg").id)
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Prime Poultry Pilaf").id, ingredient_id:Ingredient.find_by(name:"Goat Butter").id)
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Prime Poultry Pilaf").id, ingredient_id:Ingredient.find_by(name:"Hylian Rice").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Gourmet Poultry Pilaf").id, ingredient_id:Ingredient.find_by(name:"Raw Whole Bird").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Gourmet Poultry Pilaf").id, ingredient_id:Ingredient.find_by(name:"Bird Egg").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Gourmet Poultry Pilaf").id, ingredient_id:Ingredient.find_by(name:"Goat Butter").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Gourmet Poultry Pilaf").id, ingredient_id:Ingredient.find_by(name:"Hylian Rice").id)
 
 #Raw Meat or Raw Bird Drumstick
 Recipe.create(name: "Meat and Rice Bowl")

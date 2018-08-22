@@ -9,13 +9,19 @@ def select_ingredients
   Ingredient.all.each do |ingredient|
     choices.push({name: ingredient.name, value: ingredient})
   end
-  # choices = [
-  # { name: 'Vegetable', value: Ingredient.find_by_name('Vegetable') },
-  # { name: 'Acorn', value: Ingredient.find_by_name('Acorn') },
-  # { name: 'Apple', value: Ingredient.find_by_name('Apple') },
-  # { name: 'Armored Carp',value: Ingredient.find_by_name('Armored Carp') },
-  # { name: 'Porg', value: Ingredient.find_by_name('Porg') }
-  # ]
-
   prompt.multi_select("Select the ingredients in your inventory", choices)
+end
+
+def see_recipes?
+  prompt = TTY::Prompt.new
+  prompt.yes?('See Possible Recipes?')
+end
+
+def select_from_possible_recipes(recipes)
+  prompt = TTY::Prompt.new
+  choices = []
+  recipes.each do |recipe|
+    choices.push({name: recipe.name, value: recipe})
+  end
+  prompt.select("Select a recipe to make:", choices)
 end

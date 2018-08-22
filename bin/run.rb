@@ -10,4 +10,10 @@ ingredients = select_ingredients
 user.add_ingredientusers(ingredients)
 puts "\n"
 user.show_user_ingredients
+puts "\n"
+if see_recipes?
+  recipes = user.find_recipes
+  recipe = select_from_possible_recipes(recipes)
+  recipe.print_ingredients
+end
 binding.pry
