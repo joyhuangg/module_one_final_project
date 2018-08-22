@@ -11,4 +11,6 @@ require "module_one_final_project"
 # Pry.start
 
 require "irb"
+TTY::Prompt.new
+puts "Hi"
 IRB.start(__FILE__)
