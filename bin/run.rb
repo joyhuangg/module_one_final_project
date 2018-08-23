@@ -33,7 +33,7 @@ require_relative '../config/environment'
 #                         =  "
 
 
-binding.pry
+# binding.pry
 
 
 welcome_message
@@ -45,7 +45,9 @@ while !user
   answer = welcome_menu
   if answer == "New User"
     user = new_user_sign_up
-    puts "\nHello #{user.first_name}\n\n"
+    pastel = pastel = Pastel.new
+    font = TTY::Font.new(:doom)
+    # puts pastel.yellow(font.write("Hello #{user.first_name}"))
     ingredients = select_ingredients
     user.add_ingredientusers(ingredients)
     ##enter quantity
@@ -56,10 +58,13 @@ while !user
   end
 end
 
+pastel = pastel = Pastel.new
+font = TTY::Font.new(:doom)
+puts pastel.yellow(font.write("Hello #{user.first_name}"))
 #While the user doesn't choose to exit
 while answer != "Exit"
   answer = menu
-  if answer == 'View Inventory'
+  if answer == 'View Invent ory'
     user.show_user_ingredients
   elsif answer == 'Add More Ingredients'
     ingredients = select_ingredients
@@ -76,15 +81,24 @@ while answer != "Exit"
         user = User.find(user.id)
       end
     else
-      break
+      puts "Back to main menu"
     end
   elsif answer == 'Cook a New Meal'
     recipes = user.find_recipes
     recipe = select_from_possible_recipes_to_create(recipes)
-    user.make_recipe(recipe)
-    user = User.find(user.id)
+    if recipe != nil
+      recipe.print_ingredients
+      if make_recipe?
+        puts "\n"
+        user.make_recipe(recipe)
+        user = User.find(user.id)
+      end
+    else
+      puts "Back to main menu"
+    end
   elsif answer == 'View Dishes Made'
     user.print_meals
+    
   end
 end
 

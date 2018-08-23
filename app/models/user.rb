@@ -37,7 +37,10 @@ class User < ActiveRecord::Base
   def make_recipe(recipe)
     pastel = Pastel.new
     if valid_recipe?(recipe)
-      puts pastel.blue.underline("Cooking #{recipe.name}")
+      system "open audio/link_cooking.mp3"
+      sleep(10)
+      puts pastel.yellow.underline("Cooking #{recipe.name}")
+
       Meal.create(user_id: self.id, recipe_id: recipe.id)
       recipe.ingredients.each do |ingredient|
         puts pastel.cyan("Using a #{ingredient.name}")
@@ -51,6 +54,8 @@ class User < ActiveRecord::Base
   end
 
   def print_meals
+    pastel = Pastel.new
+    puts pastel.cyan.underline("#{self.first_name}'s Dishes")
     self.meals.each {|meal| puts meal.recipe.name}
   end
 
