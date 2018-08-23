@@ -3,13 +3,13 @@ class Meal < ActiveRecord::Base
   belongs_to :recipe
 
   def eat
-  puts "Yum! #{self.user.name} gained 5 hearts, you fatty! Go for a run!"
-  self.delete
+    puts "Yum! #{self.user.name} gained 5 hearts, you fatty! Go for a run!"
+    self.delete
   end
 
   def feed_to_tito
-  puts "Tito says ruff! Good boy Tito. You'll win over his love one day."
-  self.delete
+    puts "Tito says ruff! Good boy Tito. You'll win over his love one day."
+    self.delete
   end
 
   def throw_it_at_someone #require conditional for this one
@@ -18,7 +18,7 @@ class Meal < ActiveRecord::Base
     meal.each do |toss|
       choices.push(name: toss.name)
     if choices.empty?
-      puts "#{name} earned karma points."
+      puts "#{name} earned karma points.nn"
       return
     else
       return promt.select("Who would you like to throw it at? Searches existing user names
