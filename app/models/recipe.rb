@@ -6,6 +6,8 @@ class Recipe < ActiveRecord::Base
   has_many :users, through: :ingredients
 
   def print_ingredients
+    pastel = Pastel.new
+    puts pastel.red.underline("Ingredient(s) needed for #{self.name}") 
     self.ingredients.each {|ingredient| puts ingredient.name}
   end
 end

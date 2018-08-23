@@ -11,8 +11,11 @@ class User < ActiveRecord::Base
   end
 
   def show_user_ingredients
-    puts "#{self.name}'s Inventory"
-    self.ingredients.each {|ingredient| puts ingredient.name}
+    if !self.ingredients.empty?
+      pastel = Pastel.new
+      puts pastel.red.underline("#{self.name}'s Inventory")
+      self.ingredients.each {|ingredient| puts pastel.yellow(ingredient.name)}
+    end
   end
 
 
@@ -32,17 +35,23 @@ class User < ActiveRecord::Base
 
 
   def make_recipe(recipe)
+    pastel = Pastel.new
     if valid_recipe?(recipe)
-      puts "Cooking #{recipe.name}"
+      puts pastel.blue.underline("Cooking #{recipe.name}")
       Meal.create(user_id: self.id, recipe_id: recipe.id)
       recipe.ingredients.each do |ingredient|
-        puts "Using a #{ingredient.name}"
+        puts pastel.cyan("Using a #{ingredient.name}")
         IngredientUser.find_by(user_id: self.id , ingredient_id: ingredient.id).delete
       end
+      puts "\nCongrats! You added #{recipe.name} to your meals!"
     else
-      puts "I don't have the ingredients for that recipe"
+      puts pastel.red("I don't have the ingredients for that recipe")
       return
     end
+  end
+
+  def print_meals
+    self.meals.each {|meal| puts meal.recipe.name}
   end
 
 end
