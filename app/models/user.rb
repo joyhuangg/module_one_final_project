@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :ingredients, through: :ingredient_users
   has_many :ingredient_recipes, through: :ingredients
   has_many :recipes, through: :ingredient_recipes
-  # has_many :recipe_cards
+  has_many :meals
   # has_many :recipes, through: :recipe_cards
 
   def add_ingredientusers(ingredients)
@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   def make_recipe(recipe)
     if valid_recipe?(recipe)
       puts "Cooking #{recipe.name}"
+      Meal.create(user_id: self.id, recipe_id: recipe.id)
       recipe.ingredients.each do |ingredient|
         puts "Using a #{ingredient.name}"
         IngredientUser.find_by(user_id: self.id , ingredient_id: ingredient.id).delete

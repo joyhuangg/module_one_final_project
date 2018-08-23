@@ -15,7 +15,7 @@ def select_ingredients
   Ingredient.all.each do |ingredient|
     choices.push({name: ingredient.name, value: ingredient})
   end
-  prompt.multi_select("Select the ingredients in your inventory. (Use arrow keys, press Space to select and Enter to finish)", choices, per_page: 20)
+  prompt.multi_select("Select the ingredients in your inventory. (Use arrow keys, press Space to select and Enter to finish)", choices, filter: true, per_page: 20)
 end
 
 def see_recipes?
@@ -31,7 +31,7 @@ def select_from_possible_recipes(recipes)
   end
   if choices.empty?
     puts "No recipes available"
-    return 
+    return
   else
     return prompt.select("Select a recipe to make:", choices)
   end

@@ -3,7 +3,7 @@ Recipe.destroy_all
 IngredientRecipe.destroy_all
 IngredientUser.destroy_all
 User.destroy_all
-RecipeCard.destroy_all
+Meal.destroy_all
 
 
 ##Dummy User##
