@@ -59,4 +59,5 @@ class User < ActiveRecord::Base
     self.meals.each {|meal| puts meal.recipe.name}
   end
 
+
 end

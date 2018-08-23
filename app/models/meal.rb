@@ -11,7 +11,7 @@ class Meal < ActiveRecord::Base
   end
 
   def throw_it_at_someone
-    
+
     self.delete
   end
 

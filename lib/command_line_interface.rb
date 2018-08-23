@@ -139,3 +139,45 @@ def make_recipe?
   prompt = TTY::Prompt.new
   prompt.yes?(pastel.green('Make Recipe?'))
 end
+
+
+def choose_meal(meals)
+  pastel = Pastel.new
+  prompt = TTY::Prompt.new
+  choices = []
+  meals.each do |meal|
+    choices.push({name: meal.recipe.name, value: meal})
+  end
+  if choices.empty?
+    puts pastel.red("No Meals available")
+    return
+  else
+    choices.push({name: "Return to main menu"})
+    return prompt.select(pastel.cyan("Select a meal to interact with or go back to main menu:"), choices)
+  end
+end
+
+
+def interact_with_meal(meal)
+  pastel = Pastel.new
+  prompt = TTY::Prompt.new
+  # prompt.yes?(pastel.green('Make Recipe?'))
+  # prompt = TTY::Prompt.new
+  prompt.select("What would you like to do with #{meal.recipe.name}") do |menu|
+    menu.choice "Eat #{meal.recipe.name}"
+    menu.choice "Feed #{meal.recipe.name} to Tito"
+    menu.choice "Throw #{meal.recipe.name} at someone"
+    menu.choice "Give #{meal.recipe.name} to someone"
+  end
+
+  # choices = []
+  # meals.each do |meal|
+  #   choices.push({name: recipe.name, value: recipe})
+  # end
+  # if choices.empty?
+  #   puts pastel.red("No recipes available")
+  #   return
+  # else
+  #   return prompt.select(pastel.cyan("Select a recipe to create:"), choices)
+  # end
+end

@@ -64,7 +64,7 @@ puts pastel.yellow(font.write("Hello #{user.first_name}"))
 #While the user doesn't choose to exit
 while answer != "Exit"
   answer = menu
-  if answer == 'View Invent ory'
+  if answer == 'View Inventory'
     user.show_user_ingredients
   elsif answer == 'Add More Ingredients'
     ingredients = select_ingredients
@@ -97,8 +97,26 @@ while answer != "Exit"
       puts "Back to main menu"
     end
   elsif answer == 'View Dishes Made'
-    user.print_meals
-    
+    meal = choose_meal(user.meals)
+    if meal != nil
+      if meal == "Return to main menu"
+        puts "Back to main menu"
+      else
+        action = interact_with_meal(meal)
+        if action == "Eat #{meal.recipe.name}"
+          meal.eat
+        elsif action == "Feed #{meal.recipe.name} to Tito"
+          meal.feed_to_tito
+        elsif action == "Throw #{meal.recipe.name} at someone"
+          meal.throw_it_at_someone
+        else
+          meal.give_it_to_someone
+        end
+        user = User.find(user.id)
+      end
+    else
+      puts "Back to main menu"
+    end
   end
 end
 
