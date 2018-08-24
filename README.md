@@ -1,46 +1,49 @@
-# ModuleOneFinalProject
+# Bread of the Wild: Recipe Generator
 
-STEPS
+For our project in Module 1 at Flatiron School, we created a Recipe Generator in Ruby using SQLITE3 as our database. Inspired by the popular game The Legend of Zelda: Breathe of the Wild, we wanted a way to input ingredients from our inventory and get back a bunch of recipes in the game that we could make. Then we would be able to see all the possible recipes we could create using the ingredients that we currently had.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+## Installing
+
+In the console, run:
+
 1. bundle install
-  if gem 'catpix' didn't work and it's because of rmagick run...
-  1. brew install imagemagick@6
-  2. brew link --force imagemagick@6
-  3. gem install rmagick
+  if gem 'catpix' didn't work and it's because of rmagick run remove gem 'catpix or'...
+  a. brew install imagemagick@6
+  b. brew link --force imagemagick@6
+  c. gem install rmagick
 2. rake db:migrate
 3. rake db:seed
+4. ruby bin/run.rb
 
+## Built With
 
+- Active Record - To handle persisting data
+- sqlite3 - To support Active Record
+- tty - To add select abilities in the console and better visuals
+- pastel - Add visual aid in reading text
 
+## Contributing
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/module_one_final_project`. To experiment with that code, run `bin/console` for an interactive prompt.
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-TODO: Delete this and the text above, and describe your gem
+## Authors
 
-## Installation
+- Joy Huang
+- Zohra A
 
-Add this line to your application's Gemfile:
+## License
 
-```ruby
-gem 'module_one_final_project'
-```
+This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md) file for details
 
-And then execute:
+## Acknowledgments
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install module_one_final_project
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Hat tip to anyone whose code was used
+Inspiration
+etc
 
 ## Contributing
 

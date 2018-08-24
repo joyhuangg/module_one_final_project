@@ -110,7 +110,7 @@ def select_from_possible_recipes_to_create(recipes)
     puts pastel.red("No recipes available")
     return
   else
-    return prompt.select(pastel.cyan("Select a recipe to create:"), choices)
+    return prompt.select(pastel.cyan("Select a recipe to create:"), choices, per_page:15)
   end
 end
 

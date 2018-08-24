@@ -66,7 +66,7 @@ class Meal < ActiveRecord::Base
     victim = prompt.select("Who would you like to throw #{self.recipe.name} at?", choices)
     puts "\n"
     system "open audio/ouch.mp3"
-    sleep(1)
+    sleep(3)
     puts "#{victim.first_name} says that hurt. You are no longer friends with #{victim.first_name}"
     puts "           `      > <      .       > <   '
                    '                '
@@ -104,9 +104,7 @@ class Meal < ActiveRecord::Base
   end
 
 
-  def give_it_to_someone #add meal to the person receiving the meals
-    ##sound bite
-    #pic?
+  def give_it_to_someone
     prompt = TTY::Prompt.new
     choices = []
     User.all.each do |user|
@@ -122,7 +120,7 @@ class Meal < ActiveRecord::Base
     friend = prompt.select("Who would you like to give #{self.recipe.name} to?", choices)
     puts "\n"
     system "open audio/aww.mp3"
-    sleep(2)
+    sleep(3)
     if random == 0
       puts "#{friend.first_name} says thanks but they don't eat meat. You shove it in their mouth and make them eat it anyways."
     else
@@ -147,7 +145,7 @@ class Meal < ActiveRecord::Base
             |  |   |
             |__|___|
             |  |  |
-            (  (  |  
+            (  (  |
             |  |  |
             |  |  |
            _|  |  |
