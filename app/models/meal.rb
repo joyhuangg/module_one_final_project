@@ -3,15 +3,27 @@ class Meal < ActiveRecord::Base
   belongs_to :recipe
 
   def eat
-    ##sound bite
-    #pic?
     pastel = Pastel.new
     system "open audio/eating.mp3"
     sleep(1)
     puts pastel.yellow("Yum! #{self.user.first_name} gained 5 hearts ❤❤❤❤❤ from eating #{self.recipe.name}, you fatty! Go for a run!")
     sleep(1)
-    puts "( ◐ o ◑ )"
-    sleep(1)
+    puts "   .-.__.-.__.-.
+  (             )        _______
+   )           (      .-' _____ '-.       /|
+  (       ||||  )   .' .-'.  ':'-. '.    | |  __
+   ) |||| |||| (   / .''::: .:    '. \\   | | /  \\
+  (  |||| \\__/  ) / /   :::::'      \\ \\  | | |(_|
+   ) \\__/  ||  ( | ;.    ':' `       ; | \\ | \\__/
+  (   ||   ||   )| |       '..       | |  ||  ||
+   )  ##   ##  ( | ; '      ::::.    ; |  ##  ##
+  (   ##   ##   ) \\ \\       '::::   / /   ##  ##
+   )  j#   ##  (   \\ '.      :::  .' /    ##  ##
+  (   g#   ##   )   '. '-.___'_.-' .'     ##  ##
+   )  s#   ##  (      '-._______.-'       ##  ##
+  (   __   __   )
+   '-'  '-'  '-'
+"
     puts "Note: You no longer have #{self.recipe.name} in your stock."
 
     self.delete
@@ -26,7 +38,11 @@ class Meal < ActiveRecord::Base
     sleep(1)
     puts pastel.yellow(" ★ ★ ★ Tito says ruff! Good boy Tito. You'll win over his love one day if you feed him more. ★ ★ ★")
     sleep(1)
-    puts "( ◕ ‿ - )"
+    puts "                                  .-.
+     (___________________________()6 `-,
+     (   ______________________   /''\"`
+     //\\\\                      //\\\\
+     \"\" \"\"                     \"\" \"\""
     sleep(1)
     puts "Note: You no longer have #{self.recipe.name} in your stock."
     puts "(But Tito is happy)"
@@ -52,6 +68,31 @@ class Meal < ActiveRecord::Base
     system "open audio/ouch.mp3"
     sleep(1)
     puts "#{victim.first_name} says that hurt. You are no longer friends with #{victim.first_name}"
+    puts "           `      > <      .       > <   '
+                   '                '
+             .             .
+            > <     ,     > <
+       .     '             '      .      .
+                __.--._          > <
+        .     .'   L   `.--._     '
+       > <    `/ c '`    \\   `.
+        '     :           ;    `.    `     ,
+              |           ;      \\
+             /`.     | ' /        \\     .
+        '   / -.\\ \\  ^ ;/   _      \\   > <
+           :    \\`.:/ \\|     `.|    ;   '
+           |     :''   '       ;    |
+           |     |`.         _/_    ;
+           :     :  `-._____/   `. /
+            \\    |         :/ ,   V\\
+  /\"\\   __.--; _ :         `./ /  ; ;
+ :  |\\_/     |  \\L  _..--.   `.L.'  |`.   __
+ |  | ;`.    ; _ \\\\'      `.          /`+'.'`.
+ |  | |      | \\CT_;        `-.      ' / /   |
+ |-_| |   .-'`.___.            `-.    / /    ;
+ :  ; :.-'                        `-./ /.   /
+  \\/_/         _                     \\/  `./
+   \"                                  `._.'  "
     sleep(1)
     puts "Note: You no longer have #{self.recipe.name} in your stock."
     sleep(1)
@@ -87,6 +128,30 @@ class Meal < ActiveRecord::Base
     else
       puts "#{friend.first_name} says thanks. They now owe you big time."
     end
+    puts "            ////\\\\\\\\
+            |      |
+           @  O  O  @
+            |  ~   |         \\__
+             \\ -- /          |\\ |
+           ___|  |___        | \\|
+          /          \\      /|__|
+         /            \\    / /
+        /  /| .  . |\\  \\  / /
+       /  / |      | \\  \\/ /
+      <  <  |      |  \\   /
+       \\  \\ |  .   |   \\_/
+        \\  \\|______|
+          \\_|______|
+            |      |
+            |  |   |
+            |  |   |
+            |__|___|
+            |  |  |
+            (  (  |  
+            |  |  |
+            |  |  |
+           _|  |  |
+       cccC_Cccc___)"
     Meal.create(user_id: friend.id, recipe_id: self.recipe.id)
     self.delete
     puts "\n"
