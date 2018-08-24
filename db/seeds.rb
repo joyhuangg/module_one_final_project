@@ -18,8 +18,7 @@ Meal.destroy_all
 # Ingredient.create(name:)
 
 ##stand in for vegetable, herb, and flower
-Ingredient.create(name: "Vegetable", category:"")
-Ingredient.create(name: "Mushroom", category:"")
+
 Ingredient.create(name: "Porgy", category:"")
 Ingredient.create(name: "Crab", category:"")
 
@@ -198,8 +197,6 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Veggie Cream Soup").id, 
 #Actually any mushroom
 #Any other vegetable, herb, or flower
 Recipe.create(name:"Cream of Mushroom Soup")
-# IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Cream of Mushroom Soup").id, ingredient_id:Ingredient.find_by(name:"Mushroom").id)
-# IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Cream of Mushroom Soup").id, ingredient_id:Ingredient.find_by(name:"Vegetable").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Cream of Mushroom Soup").id, category: "Mushroom")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Cream of Mushroom Soup").id, category: "Vegetable")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Cream of Mushroom Soup").id, ingredient_id:Ingredient.find_by(name:"Fresh Milk").id)
@@ -207,7 +204,6 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Cream of Mushroom Soup")
 
 #really any herb, vegetable, or flower
 Recipe.create(name: "Cream of Vegetable Soup")
-# IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Cream of Vegetable Soup").id, ingredient_id:Ingredient.find_by(name:"Vegetable").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Cream of Vegetable Soup").id, category: "Vegetable")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Cream of Vegetable Soup").id, ingredient_id:Ingredient.find_by(name:"Fresh Milk").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Cream of Vegetable Soup").id, ingredient_id:Ingredient.find_by(name:"Rock Salt").id)
@@ -228,7 +224,6 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Vegetable Risotto").id, 
 
 #any mushroom
 Recipe.create(name: "Mushroom Risotto")
-# IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Risotto").id, ingredient_id:Ingredient.find_by(name:"Mushroom").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Risotto").id, category: "Mushroom")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Risotto").id, ingredient_id:Ingredient.find_by(name:"Hylian Rice").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Risotto").id, ingredient_id:Ingredient.find_by(name:"Goat Butter").id)
@@ -242,7 +237,6 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Curry Pilaf").id, ingred
 #any mushroom
 Recipe.create(name: "Mushroom Rice Balls")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Rice Balls").id, ingredient_id:Ingredient.find_by(name:"Hylian Rice").id)
-# IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Rice Balls").id, ingredient_id:Ingredient.find_by(name:"Mushroom").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Rice Balls").id, category:"Mushroom")
 
 
@@ -261,7 +255,6 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Fried Egg and Rice").id,
 
 #really any mushroom
 Recipe.create(name: "Mushroom Omelet")
-# IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Omelet").id, ingredient_id:Ingredient.find_by(name:"Mushroom").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Omelet").id, category: "Mushroom")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Omelet").id, ingredient_id:Ingredient.find_by(name:"Bird Egg").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Omelet").id, ingredient_id:Ingredient.find_by(name:"Goat Butter").id)
@@ -269,7 +262,6 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Mushroom Omelet").id, in
 
 #really any vegetable
 Recipe.create(name: "Vegetable Omelet")
-# IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Vegetable Omelet").id, ingredient_id:Ingredient.find_by(name:"Vegetable").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Vegetable Omelet").id, category:"Vegetable")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Vegetable Omelet").id, ingredient_id:Ingredient.find_by(name:"Bird Egg").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Vegetable Omelet").id, ingredient_id:Ingredient.find_by(name:"Goat Butter").id)
@@ -283,13 +275,11 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Vegetable Curry").id, in
 
 #any mushroom
 Recipe.create(name: "Fragrant Mushroom Saute")
-# IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Fragrant Mushroom Saute").id, ingredient_id:Ingredient.find_by(name:"Mushroom").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Fragrant Mushroom Saute").id, category: "Mushroom")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Fragrant Mushroom Saute").id, ingredient_id:Ingredient.find_by(name:"Goron Spice").id)
 
 #any veg, herb, or flower
 Recipe.create(name: "Herb Saute")
-# IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Herb Saute").id, ingredient_id:Ingredient.find_by(name:"Vegetable").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Herb Saute").id, category: "Vegetable")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Herb Saute").id, ingredient_id:Ingredient.find_by(name:"Goron Spice").id)
 
@@ -333,7 +323,7 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Clam Chowder").id, ingre
 #any herb, veg, or flower
 Recipe.create(name: "Creamy Seafood Soup")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Seafood Soup").id, ingredient_id:Ingredient.find_by(name:"Hearty Blueshell Snail").id)
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Seafood Soup").id, ingredient_id:Ingredient.find_by(name:"Vegetable").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Seafood Soup").id, category:"Vegetable")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Seafood Soup").id, ingredient_id:Ingredient.find_by(name:"Rock Salt").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Seafood Soup").id, ingredient_id:Ingredient.find_by(name:"Fresh Milk").id)
 
@@ -410,6 +400,7 @@ Recipe.create(name: "Glazed Seafood")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Glazed Seafood").id, ingredient_id:Ingredient.find_by(name:"Bass").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Glazed Seafood").id, ingredient_id:Ingredient.find_by(name:"Courser Bee Honey").id)
 
+#any crab
 Recipe.create(name: "Crab Stir-Fry")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Crab Stir-Fry").id, ingredient_id:Ingredient.find_by(name:"Crab").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Crab Stir-Fry").id, ingredient_id:Ingredient.find_by(name:"Goron Spice").id)
@@ -432,14 +423,14 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Spicy Peppered Seafood")
 #any herb, veg, or flower
 #any fish
 Recipe.create(name: "Steamed Fish")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Fish").id, ingredient_id:Ingredient.find_by(name:"Bass").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Fish").id, category:"Vegetable")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Fish").id, ingredient_id:Ingredient.find_by(name:"Bass").id)
 
 #any fish
 #any mushroom
 Recipe.create(name: "Fish and Mushroom Skewer")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Fish and Mushroom Skewer").id, ingredient_id:Ingredient.find_by(name:"Bass").id)
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Fish and Mushroom Skewer").id, ingredient_id:Ingredient.find_by(name:"Mushroom").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Fish and Mushroom Skewer").id, category:"Mushroom")
 
 #any snail or crab
 Recipe.create(name: "Seafood Skewer")
@@ -477,8 +468,8 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat Stew").id, ingredie
 #any meat
 #any herb, flower, or veg
 Recipe.create(name: "Creamy Meat Soup")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Meat Soup").id, ingredient_id:Ingredient.find_by(name:"Raw Meat").id)
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Meat Soup").id, ingredient_id:Ingredient.find_by(name:"Vegetable").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Meat Soup").id, category:"Meat")
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Meat Soup").id, category:"Vegetable")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Meat Soup").id, ingredient_id:Ingredient.find_by(name:"Fresh Milk").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Creamy Meat Soup").id, ingredient_id:Ingredient.find_by(name:"Rock Salt").id)
 
@@ -514,17 +505,17 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Gourmet Poultry Curry").
 
 #any meat
 Recipe.create(name: "Meaty Rice Balls")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meaty Rice Balls").id, ingredient_id:Ingredient.find_by(name:"Raw Meat").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meaty Rice Balls").id, category:"Meat")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meaty Rice Balls").id, ingredient_id:Ingredient.find_by(name:"Hylian Rice").id)
 
 #any meat
 Recipe.create(name: "Meat-Stuffed Pumpkins")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat-Stuffed Pumpkins").id, ingredient_id:Ingredient.find_by(name:"Raw Meat").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat-Stuffed Pumpkins").id, category:"Meat")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat-Stuffed Pumpkins").id, ingredient_id:Ingredient.find_by(name:"Fortified Pumpkin").id)
 
 #any meat
 Recipe.create(name: "Meat Pie")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat Pie").id, ingredient_id:Ingredient.find_by(name:"Raw Meat").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat Pie").id, category:"Meat")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat Pie").id, ingredient_id:Ingredient.find_by(name:"Goat Butter").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat Pie").id, ingredient_id:Ingredient.find_by(name:"Rock Salt").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat Pie").id, ingredient_id:Ingredient.find_by(name:"Tabantha Wheat").id)
@@ -567,7 +558,7 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Gourmet Meat and Rice Bo
 
 #any meat
 Recipe.create(name: "Glazed Meat")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Glazed Meat").id, ingredient_id:Ingredient.find_by(name:"Raw Bird Thigh").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Glazed Meat").id, category:"Meat")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Glazed Meat").id, ingredient_id:Ingredient.find_by(name:"Courser Bee Honey").id)
 
 
@@ -599,24 +590,24 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Salt-Grilled Gourmet Mea
 
 #any meat
 Recipe.create(name: "Pepper Steak")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Pepper Steak").id, ingredient_id:Ingredient.find_by(name:"Raw Meat").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Pepper Steak").id, category:"Meat")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Pepper Steak").id, ingredient_id:Ingredient.find_by(name:"Spicy Pepper").id)
 
 #any meat
 #any veg, herb, or flower
 Recipe.create(name: "Steamed Meat")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Meat").id, ingredient_id:Ingredient.find_by(name:"Raw Meat").id)
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Meat").id, ingredient_id:Ingredient.find_by(name:"Vegetable").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Meat").id, category:"Meat")
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Meat").id, category:"Vegetable")
 
 #any meat
 #any mushroom
 Recipe.create(name: "Meat and Mushroom Skewer")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat and Mushroom Skewer").id, ingredient_id:Ingredient.find_by(name:"Raw Meat").id)
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat and Mushroom Skewer").id, ingredient_id:Ingredient.find_by(name:"Mushroom").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat and Mushroom Skewer").id, category:"Meat")
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat and Mushroom Skewer").id, category:"Mushroom")
 
 #any meat
 Recipe.create(name: "Meat Skewer")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat Skewer").id, ingredient_id:Ingredient.find_by(name:"Raw Meat").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Meat Skewer").id, category:"Meat")
 
 ## SURF AND TURF ENTREES ##
 
@@ -682,7 +673,7 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Carrot Cake").id, ingred
 
 #any nut
 Recipe.create(name: "Nut Cake")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Nut Cake").id, ingredient_id:Ingredient.find_by(name:"Acorn").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Nut Cake").id, category: "Nut")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Nut Cake").id, ingredient_id:Ingredient.find_by(name:"Goat Butter").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Nut Cake").id, ingredient_id:Ingredient.find_by(name:"Cane Sugar").id)
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Nut Cake").id, ingredient_id:Ingredient.find_by(name:"Tabantha Wheat").id)
@@ -778,11 +769,11 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Sauteed Pepper").id, ing
 
 #any nut
 Recipe.create(name: "Sauteed Nut")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Sauteed Nut").id, ingredient_id:Ingredient.find_by(name:"Acorn").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Sauteed Nut").id, category:"Nut")
 
 #any fruit
 Recipe.create(name: "Simmered Fruit")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Simmered Fruit").id, ingredient_id:Ingredient.find_by(name:"Apple").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Simmered Fruit").id, category:"Fruit")
 
 Recipe.create(name: "Warm Milk")
 IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Warm Milk").id, ingredient_id:Ingredient.find_by(name:"Fresh Milk").id)
@@ -794,8 +785,8 @@ IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Wheat Bread").id, ingred
 #Any fruit
 #Any veg, flower, or herb
 Recipe.create(name: "Steamed Fruit")
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Fruit").id, ingredient_id:Ingredient.find_by(name:"Apple").id)
-IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Fruit").id, ingredient_id:Ingredient.find_by(name:"Vegetable").id)
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Fruit").id, category:"Fruit" )
+IngredientRecipe.create(recipe_id: Recipe.find_by(name:"Steamed Fruit").id, category:"Vegetable")
 
 #Any mushroom
 Recipe.create(name: "Glazed Mushrooms")

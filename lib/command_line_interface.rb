@@ -1,15 +1,3 @@
-# heart = prompt.decorate('❤ ', :magenta)
-# prompt.mask('What is your secret?', mask: heart)
-# # => What is your secret? ❤  ❤  ❤  ❤  ❤
-
-
-# def test
-#   pastel = Pastel.new
-#   puts pastel.red.on_green.bold('Unicorns!')
-#   puts pastel.red('Unicorns ', pastel.on_green('everywhere!'))
-#   binding.pry
-# end
-
 def new_user_sign_up
   prompt = TTY::Prompt.new
   pastel = Pastel.new
