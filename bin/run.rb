@@ -100,7 +100,7 @@ while answer != "Exit"
     else
       puts "Back to main menu"
     end
-  elsif answer == 'View Dishes Made'
+  elsif answer == 'Interact with Dishes You\'ve Made'
     puts "\n"
     meal = choose_meal(user.meals)
     puts "\n"

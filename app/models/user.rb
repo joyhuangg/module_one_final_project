@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
           IngredientUser.find_by(user_id: self.id , ingredient_id: ingredient.id).delete
         end
       end
-      puts pastel.yellow.on_cyan("\n ۞۞۞ Congrats! You added #{recipe.name} to your meals! ۞۞۞")
+      puts pastel.yellow.on_magenta("\n ۞۞۞ Congrats! You added #{recipe.name} to your meals! ۞۞۞")
     else
       puts pastel.red("I don't have the ingredients for that recipe")
       return

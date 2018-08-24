@@ -46,7 +46,7 @@ def menu
     # menu.choice "Adjust Quantity", 2
     menu.choice 'View Possible Recipes'
     menu.choice 'Cook a New Meal'
-    menu.choice 'View Dishes Made'
+    menu.choice 'Interact with Dishes You\'ve Made'
     menu.choice 'Exit'
   end
 end
@@ -95,7 +95,7 @@ def select_from_possible_recipes(recipes)
     puts pastel.red("No recipes available")
     return
   else
-    return prompt.select(pastel.cyan("Select a recipe to see its ingredients:"), choices)
+    return prompt.select(pastel.cyan("Select a recipe to see its ingredients:"), choices, per_page: 15)
   end
 end
 
