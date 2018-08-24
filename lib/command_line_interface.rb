@@ -22,7 +22,7 @@ def new_user_sign_up
     key(:email).ask('Email: ', required: true)
     key(:password).mask('Password: ', mask: heart, required: true)
   end
-  User.create(name: "#{user_info[:first_name]} #{user_info[:last_name]}", first_name: user_info[:first_name], last_name: user_info[:last_name], email: user_info[:email], password: user_info[:password])
+  User.create(name: "#{user_info[:first_name]} #{user_info[:last_name]}", first_name: user_info[:first_name], last_name: user_info[:last_name], email: user_info[:email].strip, password: user_info[:password].strip)
 end
 
 def existing_user_login
@@ -34,6 +34,7 @@ def existing_user_login
     key(:email).ask('Email: ', required: true)
     key(:password).mask('Password: ', mask: heart, required: true)
   end
+  # binding.pry
   user = User.find_by(email: user_info[:email], password: user_info[:password])
   if !user
     puts "Not a valid email or password\n"
@@ -67,20 +68,11 @@ def welcome_message
   pastel = Pastel.new
   puts pastel.yellow(font.write("Bread of the Wild"))
 end
+
 def welcome_menu
   font = TTY::Font.new(:doom)
   prompt = TTY::Prompt.new
-  # puts font.write("DOOM")
-  # pastel = Pastel.new
-  # puts pastel.cyan.underline("Welcome User")
   pastel = Pastel.new
-  # puts pastel.yellow(font.write("Bread of the Wild"))
-  # choices = [
-  #   {name: "New User", value: new_user_sign_up},
-  #   {name: "Existing User", value: existing_user_login},
-  #   {name: "Exit", value:exit}
-  # ]
-  # prompt.select(pastel.yellow(font.write("Bread of the Wild")), choices)
   prompt.select("") do |menu|
     menu.choice 'New User'
     menu.choice 'Existing User'
@@ -161,23 +153,10 @@ end
 def interact_with_meal(meal)
   pastel = Pastel.new
   prompt = TTY::Prompt.new
-  # prompt.yes?(pastel.green('Make Recipe?'))
-  # prompt = TTY::Prompt.new
   prompt.select("What would you like to do with #{meal.recipe.name}") do |menu|
     menu.choice "Eat #{meal.recipe.name}"
     menu.choice "Feed #{meal.recipe.name} to Tito"
-    menu.choice "Throw #{meal.recipe.name} at someone"
-    menu.choice "Give #{meal.recipe.name} to someone"
+    menu.choice "Throw #{meal.recipe.name} at Someone"
+    menu.choice "Give #{meal.recipe.name} to Someone"
   end
-
-  # choices = []
-  # meals.each do |meal|
-  #   choices.push({name: recipe.name, value: recipe})
-  # end
-  # if choices.empty?
-  #   puts pastel.red("No recipes available")
-  #   return
-  # else
-  #   return prompt.select(pastel.cyan("Select a recipe to create:"), choices)
-  # end
 end

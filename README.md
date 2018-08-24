@@ -1,5 +1,17 @@
 # ModuleOneFinalProject
 
+STEPS
+1. bundle install
+  if gem 'catpix' didn't work and it's because of rmagick run...
+  1. brew install imagemagick@6
+  2. brew link --force imagemagick@6
+  3. gem install rmagick
+2. rake db:migrate
+3. rake db:seed
+
+
+
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/module_one_final_project`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem

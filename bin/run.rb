@@ -60,9 +60,12 @@ end
 
 pastel = pastel = Pastel.new
 font = TTY::Font.new(:doom)
-puts pastel.yellow(font.write("Hello #{user.first_name}"))
+flag = true
 #While the user doesn't choose to exit
 while answer != "Exit"
+  if flag
+    puts pastel.yellow(font.write("Hello #{user.first_name}"))
+  end
   answer = menu
   if answer == 'View Inventory'
     user.show_user_ingredients
@@ -72,6 +75,7 @@ while answer != "Exit"
     user = User.find(user.id)
   elsif answer == 'View Possible Recipes'
     recipes = user.find_recipes
+    # binding.pry
     recipe = select_from_possible_recipes(recipes)
     if recipe != nil
       recipe.print_ingredients
@@ -97,27 +101,33 @@ while answer != "Exit"
       puts "Back to main menu"
     end
   elsif answer == 'View Dishes Made'
+    puts "\n"
     meal = choose_meal(user.meals)
+    puts "\n"
     if meal != nil
       if meal == "Return to main menu"
         puts "Back to main menu"
       else
         action = interact_with_meal(meal)
+        puts "\n"
+        sleep(1)
         if action == "Eat #{meal.recipe.name}"
           meal.eat
         elsif action == "Feed #{meal.recipe.name} to Tito"
           meal.feed_to_tito
-        elsif action == "Throw #{meal.recipe.name} at someone"
+        elsif action == "Throw #{meal.recipe.name} at Someone"
           meal.throw_it_at_someone
         else
           meal.give_it_to_someone
         end
+        puts "\n"
         user = User.find(user.id)
       end
     else
       puts "Back to main menu"
     end
   end
+  flag = false
 end
 
 

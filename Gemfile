@@ -10,6 +10,6 @@ gem "tty"
 # gem "tco"
 # gem "rmagick"
 # gem 'rmagick', '~> 2.16'
-# gem 'catpix', '~> 0.2.0'
+gem 'catpix'
 # Specify your gem's dependencies in module_one_final_project.gemspec
 gemspec
