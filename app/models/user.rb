@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def has_ingredient_in_category?(category)
-    self.ingredients.any?{|ingredient| ingredient.category == category}
+    self.ingredients.any?{|ingredient| ingredient.categories.include?(category)}
   end
 
 
@@ -42,6 +42,17 @@ class User < ActiveRecord::Base
     Recipe.all.select {|recipe| valid_recipe?(recipe)}
   end
 
+  def choose_ingredient_from_category(category)
+    prompt = TTY::Prompt.new
+    choices = []
+    Ingredient.all.each do |ingredient|
+      if ingredient.categories.include?(category)
+        choices.push({name: ingredient.name, value: ingredient})
+      end
+    end
+    prompt.select("Select the ingredient to use for this recipe. (Use arrow keys, press Space to select and Enter to finish, and letter keys to filter)", choices, filter: true, per_page: 10)
+  end
+
   def make_recipe(recipe)
     pastel = Pastel.new
     if valid_recipe?(recipe)
@@ -52,7 +63,8 @@ class User < ActiveRecord::Base
       Meal.create(user_id: self.id, recipe_id: recipe.id)
       recipe.ingredient_recipes.each do |recipe_ingredient|
         if recipe_ingredient.ingredient == nil
-          ingredient = self.ingredients.find_by(category:recipe_ingredient.category)
+          ingredient = choose_ingredient_from_category(recipe_ingredient.category)
+          # ingredient = self.ingredients.find_by(category:recipe_ingredient.category)
           puts pastel.cyan("Using a #{ingredient.name}")
           IngredientUser.find_by(user_id: self.id , ingredient_id: ingredient.id).delete
         else
@@ -74,7 +86,7 @@ class User < ActiveRecord::Base
      '.'.o / o|  \ o.'.'
        `-:/.__|__o\:-'
           `\"--=--\"`"
-      puts pastel.yellow.on_magenta("\n ۞۞۞ Congrats! You added #{recipe.name} to your meals! ۞۞۞")
+      puts pastel.blue.on_magenta("\n ۞۞۞ Congrats! You added #{recipe.name} to your meals! ۞۞۞")
     else
       puts pastel.red("I don't have the ingredients for that recipe")
       return

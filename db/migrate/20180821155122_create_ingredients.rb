@@ -4,7 +4,6 @@ class CreateIngredients < ActiveRecord::Migration[5.0]
       t.integer :calories
       t.string :name
       t.float :hearts
-      t.string :category
       t.string :cooked_effect
     end
   end
