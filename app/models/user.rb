@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
     if !self.ingredients.empty?
       pastel = Pastel.new
       puts pastel.red.underline("#{self.name}'s Inventory")
-      self.ingredients.each {|ingredient| puts pastel.yellow(ingredient.name)}
+      puts pastel.magenta("Quantity - Item")
+      self.ingredient_users.each {|ingredient_user| puts ingredient_user.quantity.to_s + " - " + pastel.yellow(ingredient_user.ingredient.name)}
     end
   end
 
@@ -45,7 +46,7 @@ class User < ActiveRecord::Base
   def choose_ingredient_from_category(category)
     prompt = TTY::Prompt.new
     choices = []
-    Ingredient.all.each do |ingredient|
+    self.ingredients.each do |ingredient|
       if ingredient.categories.include?(category)
         choices.push({name: ingredient.name, value: ingredient})
       end
@@ -66,11 +67,23 @@ class User < ActiveRecord::Base
           ingredient = choose_ingredient_from_category(recipe_ingredient.category)
           # ingredient = self.ingredients.find_by(category:recipe_ingredient.category)
           puts pastel.cyan("Using a #{ingredient.name}")
-          IngredientUser.find_by(user_id: self.id , ingredient_id: ingredient.id).delete
+          ingredient_user = IngredientUser.find_by(user_id: self.id , ingredient_id: ingredient.id)
+          if ingredient_user.quantity == 1
+            ingredient_user.delete
+          else
+            ingredient_user.quantity = ingredient_user.quantity - 1
+            ingredient_user.save
+          end
         else
           ingredient = recipe_ingredient.ingredient
           puts pastel.cyan("Using a #{ingredient.name}")
-          IngredientUser.find_by(user_id: self.id , ingredient_id: ingredient.id).delete
+          ingredient_user = IngredientUser.find_by(user_id: self.id , ingredient_id: ingredient.id)
+          if ingredient_user.quantity == 1
+            ingredient_user.delete
+          else
+            ingredient_user.quantity = ingredient_user.quantity - 1
+            ingredient_user.save
+          end
         end
       end
       puts "

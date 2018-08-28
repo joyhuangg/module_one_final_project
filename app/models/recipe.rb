@@ -9,8 +9,8 @@ class Recipe < ActiveRecord::Base
     pastel = Pastel.new
     puts pastel.red.underline("Ingredient(s) needed for #{self.name}")
     self.ingredient_recipes.each do |recipe_ingredient|
-      if recipe_ingredient.ingredient == nil 
-        ingredient = "Any #{recipe_ingredient.category}"
+      if recipe_ingredient.ingredient == nil
+        ingredient = "Any #{recipe_ingredient.category.name}"
       else
         ingredient = recipe_ingredient.ingredient.name
       end

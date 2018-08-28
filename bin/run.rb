@@ -51,6 +51,8 @@ while !user
     ingredients = select_ingredients
     user.add_ingredientusers(ingredients)
     ##enter quantity
+    enter_quantity(user)
+    user = User.find(user.id)
   elsif answer == "Existing User"
     user = existing_user_login
   elsif answer == "Exit"
@@ -68,14 +70,17 @@ while answer != "Exit"
   end
   answer = menu
   if answer == 'View Inventory'
+    #show quantity too must change quANTITY when using up ingredients
     user.show_user_ingredients
   elsif answer == 'Add More Ingredients'
     ingredients = select_ingredients
-    user.add_ingredientusers(ingredients)
-    user = User.find(user.id)
+    if !ingredients.empty?
+      user.add_ingredientusers(ingredients)
+      enter_quantity(user)
+      user = User.find(user.id)
+    end
   elsif answer == 'View Possible Recipes'
     recipes = user.find_recipes
-    # binding.pry
     recipe = select_from_possible_recipes(recipes)
     if recipe != nil
       recipe.print_ingredients

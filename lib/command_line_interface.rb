@@ -68,6 +68,28 @@ def welcome_menu
   end
 end
 
+def enter_quantity(user)
+  prompt = TTY::Prompt.new
+  pastel = Pastel.new
+  keys = []
+  user.ingredients.each do |ingredient|
+    keys.push(ingredient)
+  end
+  puts pastel.yellow.underline("Enter Quantity of Your Ingredients")
+  ingredient_info = prompt.collect do
+    keys.each do |cur_key|
+      item = cur_key
+      key(item).ask("Number of #{cur_key.name}: ", required:true)
+    end
+  end
+  ingredient_info.each do |ingredient|
+    quantity = ingredient[1].to_i
+    item = ingredient[0]
+    add_quantity = IngredientUser.find_by(ingredient_id:item.id, user_id:user.id)
+    add_quantity.quantity = quantity
+    add_quantity.save
+  end
+end
 
 def select_ingredients
   prompt = TTY::Prompt.new
