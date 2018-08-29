@@ -2,7 +2,6 @@ def new_user_sign_up
   prompt = TTY::Prompt.new
   pastel = Pastel.new
   heart = prompt.decorate('❤ ', :magenta)
-  # prompt.mask('What is your secret?', mask: heart)
   puts pastel.yellow.underline("Sign Up")
   user_info = prompt.collect do
     key(:first_name).ask('First Name: ', required: true)
@@ -22,7 +21,6 @@ def existing_user_login
     key(:email).ask('Email: ', required: true)
     key(:password).mask('Password: ', mask: heart, required: true)
   end
-  # binding.pry
   user = User.find_by(email: user_info[:email], password: user_info[:password])
   if !user
     puts "Not a valid email or password\n"
